@@ -4,4 +4,6 @@ define("APP_NAME","vote");
 define("APP_PATH","./vote/");
 require "./ThinkPHP/ThinkPHP.php";
 
+
+
 ?>
