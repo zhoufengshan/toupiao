@@ -1,0 +1,16 @@
+[ 2016-07-07T16:55:05+08:00 ] 0.0.0.0 /toupiao/
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php 第 402 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wamp\www\toupiao\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `tp_wxconfig` [ RunTime:0.016001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead D:\wamp\www\toupiao\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `tp_wxconfig` WHERE ( id = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tp_cache` [ RunTime:0.012000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead D:\wamp\www\toupiao\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `tp_cache` WHERE ( id = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `tp_cache` SET `access_token`='_PcOTGEtquYyKxljzV2oP_BQxeedlFmf5k6i6V84ikdGjVZFk5flPKZ7aiK7rK57H6Q5bn3B4bXDRgpa9ORnKuaBhksR-d-3dGstAReSAqQ5CdSSXMqH8JKIOfMMYE0UHWKaACAMBP',`expire_time`=1467888704 WHERE ( id = 1 ) [ RunTime:0.040003s ]
+SQL: UPDATE `tp_cache` SET `access_token`='_PcOTGEtquYyKxljzV2oP_BQxeedlFmf5k6i6V84ikdGjVZFk5flPKZ7aiK7rK57H6Q5bn3B4bXDRgpa9ORnKuaBhksR-d-3dGstAReSAqQ5CdSSXMqH8JKIOfMMYE0UHWKaACAMBP',`expire_time`=1467888704,`jsapi_ticket`='kgt8ON7yVITDhtdwci0qeZn8FnVB0aG68JqwG3RFnmezB0OJOUwp5ceigwKN_YtBDZDoOWvGqB8P3GfPFec5PQ',`ticket_time`=1467888704 WHERE ( id = 1 ) [ RunTime:0.024002s ]
+NOTIC: [8] Undefined index: nickname D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php 第 50 行.
+

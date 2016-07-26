@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0; font-family: 'Microsoft YaHei'; font-size: 12px;}
+a{text-decoration:none;}
+li{list-style:none;}
+area,input{outline:none;}
+input,button{border:none;}
+body{ margin:0 auto; overflow-x: hidden;}
+
+.tijiao{width: 750px; margin: 0 auto; background: #FFD4D4; font-size: 4em;line-height: 2em;text-align: center;}
+#lqtc{z-index: 99999;}
+.tanchuang{width: 596px;position: fixed;left: 50%;margin-left: -298px;top: 20%; display: none; }
+.tanchuang .close{width:63px; height: 63px; background: url(../bg/close.png) no-repeat; position: absolute; top: 8px; right: 8px; cursor: pointer;}
+.lingquCeng{width: 514px; height: 375px; margin:0 auto; border: 1px solid #333; border-radius: 5px;padding: 50px 40px;background: #fff;}
+.lingquCeng .text1{font-size: 2.4em;color:#e3474a;}
+.lingquCeng .text2{font-size: 2.4em; font-weight:bold; margin-top: 42px; color:#333;}
+.lingquCeng .text2 b{font-size:1.1em;}
+.lingquCeng .text3{font-size: 1.8em; margin-top: 45px; color:#554f4d;}
+.lingqu{ width: 100%; height:78px;background:#e3474a;font-size: 2.6em; margin: 90px auto 0;  font-weight:bold;color:#fff; border-radius:5px;cursor: pointer;}
+
+#tjtc{z-index: 100000;}
+.baomingCeng{width: 514px; height: 490px; margin:0 auto; border: 1px solid #333; border-radius: 5px;padding: 40px;background: #fff;}
+.baomingCeng .text1{font-size: 2.4em;color:#e3474a;}
+.baomingCeng .text2{font-size: 2.6em; font-weight:bold; margin-top: 32px; color:#333;}
+.baomingCeng .text2 b{font-size:1.1em;color: #D64748;}
+.baomingCeng .text3{font-size: 1.6em; margin-top: 45px; color:#554f4d;}
+
+.form input{width: 487px; height:75px;border: 1px solid #f19cb5; margin-top: 25px; border-radius:8px;background-color: #fef6f8;padding-left: 25px;font-size: 2.6em;}
+.form .submit{width:100%; background:#e3474a; color:#fff; font-size:3.2em; text-align:center;}
+
+#gbtc{z-index: 100001;}
+.closeCeng{width: 514px; height: 375px; margin:0 auto; border: 1px solid #333; border-radius: 5px;padding: 50px 40px;background: #fff;}
+.closeCeng .title{color: #D64748;  font-size: 2.4em;}
+.closeCeng .listTitle{color:#898989; font-size: 2.4em; margin-top: 45px;}
+.closeCeng ul{ width: 90%; position: absolute;padding: 15px 0 10px;}
+.closeCeng ul li{ position: relative;color: #333;margin-bottom:10px;float: left;font-size: 2.2em;height: 1.4em;text-indent: 44px;width: 100%;}
+.closeCeng ul li i{ position:absolute;top: 13px; left:25px; overflow:hidden; width: 10px; height: 10px; border-radius: 74px; background: #D64748;}
+.closeCeng .btn1{position:absolute; top: 380px; left:22px; background: #D64748; color:#fff; width: 200px; height: 60px; text-align:center;font-family:微软雅黑;font-size: 2.4em;line-height: 2.2em; cursor:pointer;border-radius:5px;-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;}
+.closeCeng .btn2{position:absolute; top: 380px; left: 250px; background: #898989; color:#fff; width: 200px; height: 60px; text-align:center; line-height: 2.2em; cursor:pointer; border-radius:5px;font-family:微软雅黑;font-size: 2.4em;-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;}
+.closeCeng .btn2:hover{ background:#ff5385;}

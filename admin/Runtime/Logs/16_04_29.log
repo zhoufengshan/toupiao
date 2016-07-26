@@ -1,0 +1,24 @@
+[ 2016-04-29T09:18:23+08:00 ] 0.0.0.0 /vote/admin.php
+ERR: 非法操作:index
+
+[ 2016-04-29T09:19:22+08:00 ] 0.0.0.0 /vote/admin.php/Index/addsignup.html
+ERR: Model:error您所请求的方法不存在！
+
+[ 2016-04-29T09:20:57+08:00 ] 0.0.0.0 /vote/admin.php/Index/addsignup.html
+ERR: Model:error您所请求的方法不存在！
+
+[ 2016-04-29T09:23:16+08:00 ] 0.0.0.0 /vote/admin.php/Index/addsignup.html
+ERR: Model:error您所请求的方法不存在！
+
+[ 2016-04-29T09:23:59+08:00 ] 0.0.0.0 /vote/admin.php/Index/addsignup.html
+ERR: Model:error您所请求的方法不存在！
+
+[ 2016-04-29T09:47:36+08:00 ] 0.0.0.0 /vote/admin.php/Index/delsignup/id/5.html
+ERR: 非法操作:delsignup
+
+[ 2016-04-29T15:01:50+08:00 ] 0.0.0.0 /vote/admin.php/Index/showsignup.html
+ERR: Model:num您所请求的方法不存在！
+
+[ 2016-04-29T15:43:48+08:00 ] 0.0.0.0 /vote/admin.php/Index/showvote/id/1.html
+ERR: 非法操作:showvote
+

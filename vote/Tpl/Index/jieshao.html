@@ -1,0 +1,815 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>微投票-微信活动</title>
+<meta name="keywords" content="微投票-微信活动" />
+<meta name="description" content="微投票-微信活动" />
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<link href="__PUBLIC__/theme/css/baoming.css"  type="text/css" rel="stylesheet" />
+<script src='__PUBLIC__/theme/js/jquery.js'></script>
+<script type="text/javascript" src="__PUBLIC__/theme/js/jquery.flexslider-min.js"></script>
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/theme/css/body.css"/>
+<script>
+	var phoneWidth = parseInt(window.screen.width)
+	var phoneScale = phoneWidth/640
+	var ua = navigator.userAgent
+	if (/Android (\d+\.\d+)/.test(ua)){
+	var version = parseFloat(RegExp.$1)
+	if(version>2.3){
+	document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">')
+	}else{
+	document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">')
+	}
+	} else {
+	document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">')
+	}
+</script>
+</head>
+
+<body>
+<div class="container">
+	<div class="tanchuang" id="lqtc">
+		<div class="close"></div>
+		<div class="lingquCeng">
+			<div class="text1">{$price.company}提醒您：</div>
+			<div class="text2">{$price.thankinfo}</div>
+			<div class="text3">我们为您准备了一份惊喜大礼　点击下方按钮领取</div>
+			<button class="lingqu">领取大礼包</button>
+
+		</div>
+	</div>
+	<div class="tanchuang" id="tjtc">
+		<div class="close"></div>
+		<div class="baomingCeng">
+			<div class="text1">恭喜您获得：</div>
+			<div class="text2"><b>{$price.price}</b></div>
+			<div class="text3">输入您的联系方式　客服将在稍后与您联系沟通兑奖事宜</div>
+			<div class="form">
+				<input type="text" name="username" class="name" placeholder="请输入姓名" value="" />
+				<input type="text" name="phone" class="phone" placeholder="请输入手机号" value="" />
+				<input type="submit" name="submit" class="submit" value="提交信息" />
+			</div>
+			<script>
+				$(function(){
+					$(".submit").click(function(){
+						var name = $(".name").val();
+						var phone = $((".phone")).val();
+						if(name == ""||phone == ""){
+							return false;
+						}
+						$.ajax({
+							url:"{:U('Index/ziliao')}",
+							data:{'name':name,'phone':phone},
+							type:'post',
+							success:function(data){
+								if(data == 'ok'){
+									$(".baomingCeng").html('恭喜您，提交成功！').css({'font-size':'30px','text-align':'center','height':'375px','line-height':'375px'});
+									$(".closeCeng").css({'display':'none'});
+								}
+							}
+						})
+					})
+				})
+			</script>
+		</div>
+	</div>
+
+	<div class="tanchuang" id="gbtc">
+		<div class="closeCeng">
+            <div class="title">只差最后一步了，真的要关闭吗？</div>
+            <div class="listTitle">这样您将无法获得：</div>
+            <ul class="clearfix">
+                <li>{$price.info1}<i></i></li>
+                <li>{$price.info2}<i></i></li>
+                <li>{$price.info3}<i></i></li>
+                <li>{$price.info4}<i></i></li>
+            </ul>
+            <div class="btn1">继续领取</div>
+            <div class="btn2">关&nbsp;&nbsp;闭</div>
+        </div>
+	</div>
+	<script>
+	$(function(){
+		$(".tijiao").on("click",function(){
+			$("#lqtc").css({"display":"block"});
+		})
+		$(".lingquCeng .lingqu").on("click",function(){
+			$("#lqtc").css({"display":"none"});
+			$("#tjtc").css({"display":"block"});
+		})
+		$("#lqtc .close").on("click",function(){
+			$("#lqtc").css({"display":"none"});
+			$("#gbtc").css({"display":"block"});
+		})
+
+		$("#gbtc .btn1").on("click",function(){
+			$("#gbtc").css({"display":"none"});
+			$("#tjtc").css({"display":"block"});
+		})
+		$("#gbtc .btn2").on("click",function(){
+			$("#gbtc").css({"display":"none"});
+		})
+
+		$("#tjtc .close").on("click",function(){
+			$("#tjtc").css({"display":"none"});
+			$("#gbtc").css({"display":"block"});
+		})
+
+	})
+</script>
+    <div class="index_lunbo">
+        <div class="block_home_slider">
+            <div id="home_slider" class="flexslider">            
+                <ul class="slides">
+				<volist name="img" id="img">
+                    <li>
+                        <a href="{$img.url}"><div class="slide"><img src="__PUBLIC__/image/imgcarous/{$img.photo}" alt="{$img.title}"></div></a>
+                    </li>
+				</volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+	<script>
+		$(function(){
+			$(".baoming").click(function(){
+				$.ajax({
+					url:"{:U('Index/bming')}",
+					success:function(data){
+						if(data == 1){
+							alert("报名时间还没到！");
+						}else if(data == 2){
+							alert("报名时间已截止！");
+						}else if(data == 3){
+							window.location.href = "{:U('Index/baoming')}";
+						}
+					}
+				})
+			})
+		})
+	</script>
+    <div class="pingxuan">
+        <h3>{$result.votetitle}</h3>
+        <span class="bmtime">报名时间：{$result.bmstarttime}至{$result.bmendtime}</span>
+        <span class="tptime">投票时间：{$result.votestarttime}至{$result.voteendtime}</span>
+        <button class="baoming">我要报名</button>
+		<script>
+			$(function(){
+				$.ajax({
+					url:"{:U('Index/visits')}",
+					success:function(data){
+						$(".visits").html(data);
+					}
+				})
+			})
+		</script>
+        <ul class="px_bot">
+            <li><b>参与选手</b><i>{$canyu}</i></li><span></span>
+            <li><b>累计投票</b><i>{$zsignup}</i></li><span></span>
+            <li><b>访问量</b><i class="visits"></i></li>
+        </ul>
+    </div>
+    <div style="clear: both;"></div>
+    
+    <div class="px_content">
+		<script>
+			$(function(){
+				$.ajax({
+					url:"{:U('Index/isshowdes')}",
+					success:function(data){
+						if(data == '0'){
+							$("#isshowdes").css({
+								'display':'none'
+							});
+						}
+					}
+				})
+				$.ajax({
+					url:"{:U('Index/isshowcanyu')}",
+					success:function(data){
+						if(data == '0'){
+							$("#isshowcanyu").css({
+								'display':'none'
+							});
+						}
+					}
+				})
+				$.ajax({
+					url:"{:U('Index/isshowflow')}",
+					success:function(data){
+						if(data == '0'){
+							$("#isshowflow").css({
+								'display':'none'
+							});
+						}
+					}
+				})
+				$.ajax({
+					url:"{:U('Index/isshowprice')}",
+					success:function(data){
+						if(data == '0'){
+							$("#isshowprice").css({
+								'display':'none'
+							});
+						}
+					}
+				})
+			})
+		</script>
+        <div class="px_con" id="isshowdes">
+            <h3>活动简介</h3>
+            <p>{$result.activeabout}
+            </p>
+        </div>
+
+        <div class="px_con" id="isshowcanyu">
+            <h3>如何参与</h3>
+            <p>{$result.canyu}
+            </p>
+        </div>
+        
+        <div class="px_con" id="isshowflow">
+            <h3>活动流程</h3>
+            <p>{$result.flow}
+            </p>
+        </div>
+        <div class="px_con" id="isshowprice">
+            <h3>惊喜礼品</h3>
+            <p>{$result.prize}
+            </p>
+        </div>
+        <div style="clear: both;"></div>
+        <div><button class="toupiaojulu">投票记录</button></div>
+        
+        <div class="julu_con">
+            <ol> 
+                <li>编号</li>
+                <li>姓名</li>
+                <li>投票时间</li>
+            </ol>
+			<volist name="jilu" id="jilu">
+            <ul>
+                <li>{$i}</li>
+                <li>{$jilu.title}</li>
+                <li><?php echo date("Y-m-d H:i:s",$jilu['time']);?></li>
+            </ul>
+			</volist>
+        </div>
+        <div style="clear: both;"></div>
+        <div id="sousuo" class="search"><input type="text" placeholder="输入编号或者名称搜索" class="sousuo"/><button class="ss">搜索</button></div>
+		<script>
+			$(function(){
+				$(".ss").click(function(){
+					var sousuo = $(".sousuo").val();
+					if(sousuo == ""){
+						return false;
+					}
+					window.location.href="http://gtoupiao.duapp.com/index.php/Index/search?con="+sousuo;
+				})
+			})
+		</script>
+        <div class="xuanshou">
+            <ul>
+                <li class="xs_01 on"><i></i>全部选手<span></span></li>
+                <li class="xs_02"><i></i>最新选手<span></span></li>
+                <li class="xs_03"><i></i>人气排行</li>
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="xs_show">
+            <div class="qbxs_list">
+                <ul class="aa">
+				<volist name="qbxs" id="qbxs">
+                    <li >
+						<a href="{:U('Index/show','id='.$qbxs['id'])}">
+                        <img src="__PUBLIC__/image/signup/{$qbxs.thumb}" alt="">
+                        <span>
+                            <i>{$qbxs.id}号</i><b>{$qbxs.title}</b><span>{$qbxs.vote}票</span>
+                        </span>
+						</a>
+                        <button class="{$qbxs.id}">投票</button>
+                    </li>
+					<script>
+						$(function(){
+							$(".{$qbxs.id}").click(function(){
+								$.ajax({
+									url:"{:U('Index/toupiao')}",
+									data:{'id':'<?php echo $qbxs['id'];?>','title':'<?php echo $qbxs['title'];?>'},
+									type:'post',
+									success:function(data){
+										if(data == '投票成功'){
+											$("#lqtc").css({"display":"block"});
+											$(".lingquCeng .lingqu").on("click",function(){
+												$("#lqtc").css({"display":"none"});
+												$("#tjtc").css({"display":"block"});
+											})
+											$("#lqtc .close").on("click",function(){
+												$("#lqtc").css({"display":"none"});
+												$("#gbtc").css({"display":"block"});
+											})
+
+											$("#gbtc .btn1").on("click",function(){
+												$("#gbtc").css({"display":"none"});
+												$("#tjtc").css({"display":"block"});
+											})
+											$("#gbtc .btn2").on("click",function(){
+												$("#gbtc").css({"display":"none"});
+											})
+
+											$("#tjtc .close").on("click",function(){
+												$("#tjtc").css({"display":"none"});
+												$("#gbtc").css({"display":"block"});
+											})
+										}else{
+											alert(data);
+										}
+									}
+								})
+							})
+						})
+					</script>
+                </volist>
+						
+                </ul>
+				<span class="fg_tj_more_bg last">点击加载更多</span>
+            </div>
+			<script>    
+$(document).ready(function($) {
+	catid = 0;
+	ci=1;
+	items=<?php echo $canyu;?>;
+	if(items<15){
+		$(".last").hide();
+	}else{
+		$(".last").show();
+	}
+    $(".fg_tj_more_bg").click(function(event) {
+		if(ci>items){
+			$(".last").hide();
+		}else{
+		  $.ajax({
+			url: "{:U('Index/jiazai')}",
+			type: 'POST',
+			dataType: 'json',
+			data: {ci:ci},
+			success:function(json){
+				$.each(json, function(index, val) {
+					var qbxslen=$(".xs_show .qbxs_list ul li").length+1;
+					qbxsgao=qbxslen*160+50;
+					$(".xs_show .qbxs_list").css({"height":qbxsgao});
+					$(".aa").append('<li><a href='+'{:U('Index/show','id='.$qbxs['id'])}'+'><img src='+'__PUBLIC__/image/signup/'+val.photo+' alt=""><span><i>'+val.id+'号</i><b>'+val.title+'</b><span>'+val.vote+'票</span></span></a><button class="'+val.id+'">投票</button></li>');
+					$('.'+val.id).click(function(){
+							$.ajax({
+								url:"{:U('Index/toupiao')}",
+								data:{'id':val.id,'title':val.title},
+								type:'post',
+								success:function(data){
+									alert(data);
+								}
+							})
+						})
+				})
+			},
+		  })
+		 }
+		 //items=items-1;
+		 ci=ci +15;
+		 return;
+		
+    });
+  });
+</script> 
+            <div class="zxxs_list" style="display: none;">
+                <ul class="bb">
+				<volist name="zxxs" id="zxxs">
+                    <li>
+						<a href="{:U('Index/show','id='.$zxxs['id'])}">
+                        <img src="__PUBLIC__/image/signup/{$zxxs.photo}" alt="">
+                        <span>
+                            <i>{$zxxs.id}号</i><b>{$zxxs.title}</b><span>{$zxxs.vote}票</span>
+                        </span>
+						</a>
+                        <button class="<?php echo $zxxs['id'].'55';?>">投票</button>
+                    </li>
+					<script>
+						$(function(){
+							$(".<?php echo $zxxs['id'].'55';?>").click(function(){
+								$.ajax({
+									url:"{:U('Index/toupiao')}",
+									data:{'id':'<?php echo $zxxs['id'];?>','title':'<?php echo $zxxs['title'];?>'},
+									type:'post',
+									success:function(data){
+										if(data == '投票成功'){
+											$("#lqtc").css({"display":"block"});
+											$(".lingquCeng .lingqu").on("click",function(){
+												$("#lqtc").css({"display":"none"});
+												$("#tjtc").css({"display":"block"});
+											})
+											$("#lqtc .close").on("click",function(){
+												$("#lqtc").css({"display":"none"});
+												$("#gbtc").css({"display":"block"});
+											})
+
+											$("#gbtc .btn1").on("click",function(){
+												$("#gbtc").css({"display":"none"});
+												$("#tjtc").css({"display":"block"});
+											})
+											$("#gbtc .btn2").on("click",function(){
+												$("#gbtc").css({"display":"none"});
+											})
+
+											$("#tjtc .close").on("click",function(){
+												$("#tjtc").css({"display":"none"});
+												$("#gbtc").css({"display":"block"});
+											})
+										}else{
+											alert(data);
+										}
+									}
+								})
+							})
+						})
+					</script>
+                 </volist> 
+				 
+                </ul>
+				<span class="fg_tj_more_bg1" id="zx">点击加载更多</span>
+				</div>
+				<script>    
+$(document).ready(function($) {
+	catid = 0;
+	ci=1;
+	items=<?php echo $canyu;?>;
+	if(items<15){
+		$("#zx").hide();
+	}else{
+		$("#zx").show();
+	}
+    $("#zx").click(function(event) {
+		if(ci>items){
+			$("#zx").hide();
+		}else{
+		  $.ajax({
+			url: "{:U('Index/zx')}",
+			type: 'POST',
+			dataType: 'json',
+			data: {ci:ci},
+			success:function(json){
+				$.each(json, function(index, val) {
+					var zxxslen=$(".xs_show .zxxs_list ul li").length+1;
+					zxxsgao=zxxslen*160+50;
+					$(".xs_show .zxxs_list").css({"height":zxxsgao});
+					$(".bb").append('<li><a href='+'{:U('Index/show','id='.$zxxs['id'])}'+'><img src='+'__PUBLIC__/image/signup/'+val.photo+' alt=""><span><i>'+val.id+'号</i><b>'+val.title+'</b><span>'+val.vote+'票</span></span></a><button class="'+val.id+'">投票</button></li>');
+					$('.'+val.id).click(function(){
+								$.ajax({
+									url:"{:U('Index/toupiao')}",
+									data:{'id':val.id,'title':val.title},
+									type:'post',
+									success:function(data){
+										alert(data);
+									}
+								})
+							})
+				})
+			},
+		  })
+		 }
+		 //items=items-1;
+		 ci=ci +15;
+		 return;
+		
+    });
+  });
+</script> 
+            
+            <div class="rqph_list" style="display: none;">
+                <ul class="cc">
+				<volist name="rqxs" id="rqxs">
+                    <li>
+						<a href="{:U('Index/show','id='.$rqxs['id'])}">
+                        <img src="__PUBLIC__/image/signup/{$rqxs.photo}" alt="">
+                        <span>
+                            <i>{$rqxs.id}号</i><b>{$rqxs.title}</b><span>{$rqxs.vote}票</span>
+                        </span>
+						</a>
+                        <button class="<?php echo $rqxs['id'].'66';?>">投票</button>
+                    </li>
+					<script>
+						$(function(){
+							$(".<?php echo $rqxs['id'].'66';?>").click(function(){
+								$.ajax({
+									url:"{:U('Index/toupiao')}",
+									data:{'id':'<?php echo $rqxs['id'];?>','title':'<?php echo $rqxs['title'];?>'},
+									type:'post',
+									success:function(data){
+										if(data == '投票成功'){
+											$("#lqtc").css({"display":"block"});
+											$(".lingquCeng .lingqu").on("click",function(){
+												$("#lqtc").css({"display":"none"});
+												$("#tjtc").css({"display":"block"});
+											})
+											$("#lqtc .close").on("click",function(){
+												$("#lqtc").css({"display":"none"});
+												$("#gbtc").css({"display":"block"});
+											})
+
+											$("#gbtc .btn1").on("click",function(){
+												$("#gbtc").css({"display":"none"});
+												$("#tjtc").css({"display":"block"});
+											})
+											$("#gbtc .btn2").on("click",function(){
+												$("#gbtc").css({"display":"none"});
+											})
+
+											$("#tjtc .close").on("click",function(){
+												$("#tjtc").css({"display":"none"});
+												$("#gbtc").css({"display":"block"});
+											})
+										}else{
+											alert(data);
+										}
+									}
+								})
+							})
+						})
+					</script>
+                </volist>
+                </ul>
+				<span id="rq" class="fg_tj_more_bg2">点击加载更多</span>
+            </div>
+<script>    
+$(document).ready(function($) {
+	catid = 0;
+	ci=1;
+	items=<?php echo $canyu;?>;
+	if(items<15){
+		$("#rq").hide();
+	}else{
+		$("#rq").show();
+	}
+    $("#rq").click(function(event) {
+		if(ci>items){
+			$("#rq").hide();
+		}else{
+		  $.ajax({
+			url: "{:U('Index/rq')}",
+			type: 'POST',
+			dataType: 'json',
+			data: {ci:ci},
+			success:function(json){
+				$.each(json, function(index, val) {
+					var rqphlen=$(".xs_show .rqph_list ul li").length+2;
+					rqphgao=rqphlen*160+50;
+					$(".xs_show .rqph_list").css({"height":rqphgao});
+					$(".cc").append('<li><a href='+'{:U('Index/show','id='.$rqxs['id'])}'+'><img src='+'__PUBLIC__/image/signup/'+val.photo+' alt=""><span><i>'+val.id+'号</i><b>'+val.title+'</b><span>'+val.vote+'票</span></span></a><button class="'+val.id+'">投票</button></li>');
+					$('.'+val.id).click(function(){
+								$.ajax({
+									url:"{:U('Index/toupiao')}",
+									data:{'id':val.id,'title':val.title},
+									type:'post',
+									success:function(data){
+										alert(data);
+									}
+								})
+							})
+				})
+			},
+		  })
+		 }
+		 //items=items-1;
+		 ci=ci +15;
+		 return;
+		
+    });
+  });
+</script> 
+        </div>
+    </div>
+</div>
+
+<div class="paihang" style="display: none;">
+    <div class="hide_cen"></div>
+    <div class="phb_list">
+        <div class="close"></div>
+        <div class="phb_con">
+            <h3>{$result.votetitle}排行榜</h3>
+            <ol>
+                <li>排行</li>
+                <li>姓名</li>
+                <li>投票数</li>
+            </ol>
+            <ul>
+			<volist name="paihang" id="paihang">
+                <li><b>{$i}</b><span>{$paihang.title}</span><i>{$paihang.vote}</i></li>
+            </volist>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <ul>
+        <a href="{:U('Index/jieshao')}"><li>首页</li></a>
+        <a href="tel:{$result.tel}"><li>电话</li></a>
+        <a href="#sousuo"><li>搜索</li></a>
+        <a href="#" id="paihang"><li>排行</li></a>
+        <a href="{:U('Index/baoming')}"><li class="baomimg">报名</li></a>
+    </ul>
+</footer>
+
+</body>
+<script>
+    $(function () {
+        $("#home_slider").flexslider({
+            animation : "slide",
+            controlNav : true,
+            directionNav : true,
+            animationLoop : true,
+            slideshow : false,
+            useCSS : false
+        });
+
+        $(".toupiaojulu").toggle( 
+            function(){$(".julu_con").hide();}, 
+            function(){$(".julu_con").show();} 
+        );
+
+        $("#paihang").on("click",function(){
+            $(".paihang").css({"display":"block"});
+        })
+        $(".phb_list .close").on("click",function(){
+            $(".paihang").css({"display":"none"});
+        })
+         
+    });
+
+    $(function(){
+        var qbxslen=$(".xs_show .qbxs_list ul li").length;
+        var zxxslen=$(".xs_show .zxxs_list ul li").length;
+        var rqphlen=$(".xs_show .rqph_list ul li").length;
+        qbxsgao=qbxslen*160+50;
+        zxxsgao=zxxslen*160+50;
+        rqphgao=rqphlen*160+50;
+        $(".xs_show .qbxs_list").css({"height":qbxsgao});
+        $(".xs_show .zxxs_list").css({"height":zxxsgao});
+        $(".xs_show .rqph_list").css({"height":rqphgao});
+
+        $(".xuanshou ul li").on("click",function(){
+            $(this).addClass('on').siblings().removeClass('on');
+            var index = $(this).index();
+            $('.xs_show div').hide();
+            $('.xs_show div:eq('+index+')').show();
+        })
+    })
+
+
+</script>
+<script type="text/javascript">
+wx.config({
+    debug: false,
+    appId: '<?php echo $appid;?>',
+    timestamp: '<?php echo $timestamp;?>',
+    nonceStr: '<?php echo $noncestr;?>',
+    signature: '<?php echo $signature;?>',
+    jsApiList: [
+    'checkJsApi',
+    'onMenuShareTimeline',
+    'onMenuShareAppMessage',
+    'onMenuShareQQ',
+    'onMenuShareWeibo',
+    'hideMenuItems',
+    'showMenuItems',
+    'hideAllNonBaseMenuItem',
+    'showAllNonBaseMenuItem',
+    'translateVoice',
+//    'startRecord',
+//    'stopRecord',
+    'onRecordEnd',
+//    'playVoice',
+//    'pauseVoice',
+//    'stopVoice',
+//    'uploadVoice',
+//    'downloadVoice',
+    'chooseImage',
+    'previewImage',
+    'uploadImage',
+    'downloadImage',
+    'getNetworkType',
+    'openLocation',
+//    'getLocation',
+//    'hideOptionMenu',
+//    'showOptionMenu',
+//    'closeWindow',
+    'scanQRCode',
+    'chooseWXPay',
+//    'openProductSpecificView',
+//    'addCard',
+//    'chooseCard',
+//    'openCard'
+  ]
+});
+        
+var share_tittle = "{$shareinfo.title}";
+var share_desc = "{$shareinfo.des}";
+var share_img = "{$shareinfo.shareimg}";
+
+
+	 wx.ready(function(){
+	 wx.onMenuShareAppMessage({
+		 title: share_tittle,
+	     desc: share_desc,
+	     link: '',
+	     imgUrl: share_img,
+	     trigger: function (res) {
+	        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+	      //  alert('用户点击发送给朋友');
+	      },
+	      success: function (res) {
+	      // alert('已分享');
+	      doshareok('AppMessage');
+	      },
+	      cancel: function (res) {
+	     //   alert('已取消');
+	      },
+	      fail: function (res) {
+	     //  alert(JSON.stringify(res));
+	      }
+	});
+	  // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+	 wx.onMenuShareTimeline({
+		 title: share_tittle,
+	     link: '',
+	     imgUrl: share_img,
+	     trigger: function (res) {
+	        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+	      //  alert('用户点击分享到朋友圈');
+	      },
+	      success: function (res) {
+	     //   alert('已分享');
+		 doshareok('Timeline');
+	      },
+	      cancel: function (res) {
+	     //   alert('已取消');
+	      },
+	      fail: function (res) {
+	     //   alert(JSON.stringify(res));
+	      }
+	});
+
+	  // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+	     wx.onMenuShareQQ({
+	    	 title: share_tittle,
+		     desc: share_desc,
+		     link: '',
+		     imgUrl: share_img,
+
+	      trigger: function (res) {
+	     //   alert('用户点击分享到QQ');
+	      },
+	      complete: function (res) {
+	     //   alert(JSON.stringify(res));
+	      },
+	      success: function (res) {
+	    //    alert('已分享');
+		  doshareok('ShareQQ');
+	      },
+	      cancel: function (res) {
+	   //     alert('已取消');
+	      },
+	      fail: function (res) {
+	   //     alert(JSON.stringify(res));
+	      }
+	    });
+
+	  // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+	wx.onMenuShareWeibo({
+			title: share_tittle,
+		    desc: share_desc,
+		    link: '',
+		    imgUrl: share_img,
+
+	      trigger: function (res) {
+	        //alert('用户点击分享到微博');
+	      },
+	      complete: function (res) {
+	       // alert(JSON.stringify(res));
+	      },
+	      success: function (res) {
+	      //  alert('已分享');
+	      doshareok('ShareWeibo');
+	      },
+	      cancel: function (res) {
+	     //   alert('已取消');
+	      },
+	      fail: function (res) {
+	     //   alert(JSON.stringify(res));
+	      }
+	    });
+
+
+	});
+</script>
+
+</html>

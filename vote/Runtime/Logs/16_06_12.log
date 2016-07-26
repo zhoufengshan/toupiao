@@ -1,0 +1,52 @@
+[ 2016-06-12T14:21:04+08:00 ] 0.0.0.0 /toupiao/
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php ç¬¬ 401 è¡Œ.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wamp\www\toupiao\ThinkPHP\Lib\Driver\Db\DbMysql.class.php ç¬¬ 55 è¡Œ.
+NOTIC: [2] mysql_connect():  D:\wamp\www\toupiao\ThinkPHP\Lib\Driver\Db\DbMysql.class.php ç¬¬ 55 è¡Œ.
+ERR: ÓÉÓÚÁ¬½Ó·½ÔÚÒ»¶ÎÊ±¼äºóÃ»ÓÐÕýÈ·´ð¸´»òÁ¬½ÓµÄÖ÷»úÃ»ÓÐ·´Ó¦£¬Á¬½Ó³¢ÊÔÊ§°Ü¡£
+
+
+[ 2016-06-12T14:24:36+08:00 ] 0.0.0.0 /toupiao/
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.017001s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php ç¬¬ 401 è¡Œ.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wamp\www\toupiao\ThinkPHP\Lib\Driver\Db\DbMysql.class.php ç¬¬ 55 è¡Œ.
+NOTIC: [2] mysql_connect():  D:\wamp\www\toupiao\ThinkPHP\Lib\Driver\Db\DbMysql.class.php ç¬¬ 55 è¡Œ.
+ERR: ÓÉÓÚÁ¬½Ó·½ÔÚÒ»¶ÎÊ±¼äºóÃ»ÓÐÕýÈ·´ð¸´»òÁ¬½ÓµÄÖ÷»úÃ»ÓÐ·´Ó¦£¬Á¬½Ó³¢ÊÔÊ§°Ü¡£
+
+
+[ 2016-06-12T14:25:35+08:00 ] 0.0.0.0 /toupiao/
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php ç¬¬ 401 è¡Œ.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wamp\www\toupiao\ThinkPHP\Lib\Driver\Db\DbMysql.class.php ç¬¬ 55 è¡Œ.
+SQL: SHOW COLUMNS FROM `tp_wxconfig` [ RunTime:0.003001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead D:\wamp\www\toupiao\ThinkPHP\Lib\Core\Db.class.php ç¬¬ 605 è¡Œ.
+SQL: SELECT * FROM `tp_wxconfig` WHERE ( id = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tp_cache` [ RunTime:0.003000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead D:\wamp\www\toupiao\ThinkPHP\Lib\Core\Db.class.php ç¬¬ 605 è¡Œ.
+SQL: SELECT * FROM `tp_cache` WHERE ( id = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `tp_cache` SET `access_token`='Cwv2WNo31PX90QhxdM-I-TitYJfcmkGXh5uX-MmkRCfpMNnEJl_7xV01XYWhT4pRuK2HNMFvztlky0A5OaxnXmYlpTL0qtxfaGLiJ8emeY69BuV6sQ6PU-DJ-Q6L070xUTKiAAAEDU',`expire_time`=1465719733 WHERE ( id = 1 ) [ RunTime:0.031001s ]
+SQL: UPDATE `tp_cache` SET `access_token`='Cwv2WNo31PX90QhxdM-I-TitYJfcmkGXh5uX-MmkRCfpMNnEJl_7xV01XYWhT4pRuK2HNMFvztlky0A5OaxnXmYlpTL0qtxfaGLiJ8emeY69BuV6sQ6PU-DJ-Q6L070xUTKiAAAEDU',`expire_time`=1465719733,`jsapi_ticket`='kgt8ON7yVITDhtdwci0qeZn8FnVB0aG68JqwG3RFnmdh_JF_8IeEw5Lg7DGCfuppL2ou8QrZ9WsHEQC_fcNgfw',`ticket_time`=1465719733 WHERE ( id = 1 ) [ RunTime:0.026001s ]
+NOTIC: [8] Undefined index: nickname D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php ç¬¬ 50 è¡Œ.
+
+[ 2016-06-12T17:22:04+08:00 ] 0.0.0.0 /toupiao/
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of IndexAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php ç¬¬ 402 è¡Œ.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wamp\www\toupiao\ThinkPHP\Lib\Driver\Db\DbMysql.class.php ç¬¬ 55 è¡Œ.
+SQL: SHOW COLUMNS FROM `tp_wxconfig` [ RunTime:0.002000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead D:\wamp\www\toupiao\ThinkPHP\Lib\Core\Db.class.php ç¬¬ 605 è¡Œ.
+SQL: SELECT * FROM `tp_wxconfig` WHERE ( id = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tp_cache` [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead D:\wamp\www\toupiao\ThinkPHP\Lib\Core\Db.class.php ç¬¬ 605 è¡Œ.
+SQL: SELECT * FROM `tp_cache` WHERE ( id = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `tp_cache` SET `access_token`='7UYUEZ_l4V10BsJgQsUel7OSEmDsTHlROd3hzM8UqZ2FWR8n8Ty_VZmd47jNfh_mrVgI9HzNURLyCdY11yQObK_CkzRXHkRaHFdWd7v-EUg1qbq3Zq1o0AhvNwvlD4mfPVEgAEABHQ',`expire_time`=1465730324 WHERE ( id = 1 ) [ RunTime:0.032002s ]
+SQL: UPDATE `tp_cache` SET `access_token`='7UYUEZ_l4V10BsJgQsUel7OSEmDsTHlROd3hzM8UqZ2FWR8n8Ty_VZmd47jNfh_mrVgI9HzNURLyCdY11yQObK_CkzRXHkRaHFdWd7v-EUg1qbq3Zq1o0AhvNwvlD4mfPVEgAEABHQ',`expire_time`=1465730324,`jsapi_ticket`='kgt8ON7yVITDhtdwci0qeZn8FnVB0aG68JqwG3RFnmdxew8hzFSRkkqcVE8u7hZoLfSJZfIqB_09BwuBgUhDOw',`ticket_time`=1465730324 WHERE ( id = 1 ) [ RunTime:0.024002s ]
+NOTIC: [8] Undefined index: nickname D:\wamp\www\toupiao\vote\Lib\Action\IndexAction.class.php ç¬¬ 50 è¡Œ.
+

@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<title>后台管理</title>
+		
+		<!--                       CSS                       -->
+	  
+		<!-- Reset Stylesheet -->
+		<link rel="stylesheet" href="__PUBLIC__/resources/css/reset.css" type="text/css" media="screen" />
+	  
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="__PUBLIC__/resources/css/style.css" type="text/css" media="screen" />
+		
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="__PUBLIC__/resources/css/invalid.css" type="text/css" media="screen" />	
+		<link href="__PUBLIC__/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="__PUBLIC__/third-party/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/lang/zh-cn/zh-cn.js"></script>
+		<!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.
+		
+		<link rel="stylesheet" href="resources/css/blue.css" type="text/css" media="screen" />
+		
+		<link rel="stylesheet" href="resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+		
+		<!-- Internet Explorer Fixes Stylesheet -->
+		
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
+		<![endif]-->
+		
+		<!--                       Javascripts                       -->
+  
+		<!-- jQuery -->
+		
+		
+		<!-- jQuery Configuration -->
+		<script type="text/javascript" src="__PUBLIC__/resources/scripts/simpla.jquery.configuration.js"></script>
+		
+		<!-- Facebox jQuery Plugin -->
+		<script type="text/javascript" src="__PUBLIC__/resources/scripts/facebox.js"></script>
+		
+		<!-- jQuery WYSIWYG Plugin -->
+		<script type="text/javascript" src="__PUBLIC__/resources/scripts/jquery.wysiwyg.js"></script>
+		
+		<!-- jQuery Datepicker Plugin -->
+		<script type="text/javascript" src="__PUBLIC__/resources/scripts/jquery.datePicker.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/resources/scripts/jquery.date.js"></script>
+		<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+
+		
+		<!-- Internet Explorer .png-fix -->
+		
+		<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+		
+	</head>
+  
+	<body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
+		
+		<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+			
+			<h1 id="sidebar-title"><a href="#">后台管理</a></h1>
+		  
+			<!-- Logo (221px wide) -->
+			<a href="#"><img id="logo" src="__PUBLIC__/resources/images/logo.png" alt="Simpla Admin logo" /></a>
+		  
+			<!-- Sidebar Profile links -->
+			<div id="profile-links">
+				欢迎回来, {$name}<br />
+				<br />
+				<a href="#" title="View the Site">查看网站</a> | <a href="{:U('Index/logout')}" title="登出">登出</a>
+			</div>        
+			
+			<ul id="main-nav">  <!-- Accordion Menu -->
+				
+				<li>
+					<a href="{:U('Index/showimgcarous')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						查看轮播图
+					</a>       
+				</li>
+				<li>
+					<a href="{:U('Index/config')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						配置信息
+					</a>       
+				</li>
+				<li>
+					<a href="{:U('Index/wxconfig')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						微信账号配置
+					</a>       
+				</li>
+				<li>
+					<a href="{:U('Index/showsignup')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						查看报名
+					</a>       
+				</li>
+				<li>
+					<a href="{:U('Index/vote')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						投票详情
+					</a>       
+				</li>
+				<li>
+					<a href="{:U('Index/price')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						修改奖品
+					</a>       
+				</li>
+				<li>
+					<a href="{:U('Index/shareinfo')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						自定义分享设置
+					</a>       
+				</li>
+				<li>
+					<a href="{:U('Index/user')}" class="nav-top-item"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+						添加管理员
+					</a>       
+				</li>
+				      
+				
+			</ul> <!-- End #main-nav -->
+			
+			
+			
+		</div></div> <!-- End #sidebar -->
+		
+		<div id="main-content"> <!-- Main Content Section with everything -->
+			
+			
+			<!-- Page Head -->
+			<h2>欢迎您{$name}</h2>
+			<p id="page-intro">配置信息</p>
+			
+			<div class="clear"></div> <!-- End .clear -->
+			
+			<div class="content-box"><!-- Start Content Box -->
+				
+				<div class="content-box-header">
+					
+					<h3>配置信息</h3>
+					
+					<div class="clear"></div>
+					
+				</div> <!-- End .content-box-header -->
+				
+				<div class="content-box-content">
+					
+					<div class="tab-content default-tab" id="tab2">
+					
+						<form action="{:U('Index/voteconfig')}" method="post" enctype="multipart/form-data">
+							
+							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+								
+								<p>
+									<label>投票活动标题</label>
+										<input class="text-input small-input" type="text" id="small-input" name="votetitle" value="{$info.votetitle}"/>
+								</p>
+								
+								<p>
+									<label>报名时间</label>
+										<input class="text-input small-input" type="text" id="small-input" name="bmstarttime" value="{$info.bmstarttime}"/> - 
+										<input class="text-input small-input" type="text" id="small-input" name="bmendtime" value="{$info.bmendtime}"/><span>(报名时间开始后方可报名，时间设置格式如：2016-4-20)</span>
+								</p>
+								<p>
+									<label>投票时间</label>
+										<input class="text-input small-input" type="text" id="small-input" name="votestarttime" value="{$info.votestarttime}"/> - 
+										<input class="text-input small-input" type="text" id="small-input" name="voteendtime" value="{$info.voteendtime}"/><span>(投票时间开始后方可投票，时间设置格式如：2016-4-20)</span>
+								</p>
+								
+								<p>
+									<label>个人页面分享标题</label>
+										<input class="text-input small-input" type="text" id="small-input" name="pagetitle" value="{$info.pagetitle}"/>
+								</p>
+								<p>
+									<label>个人页面分享描述</label>
+										<input class="text-input small-input" type="text" id="small-input" name="pagedec" value="{$info.pagedec}"/>
+								</p>
+								<p style="width:550px;">
+									<label>活动简介</label>
+										<script type="text/plain" id="myEditor1" name="activeabout" style="width:550px;height:170px;">{$info.activeabout}
+										</script>
+										<script>
+											var um = UM.getEditor('myEditor1');
+										</script>
+								</p>
+								
+								<p style="width:550px;">
+									<label>如何参与</label>
+										<script type="text/plain" id="myEditor2" name="canyu" style="width:550px;height:170px;">{$info.canyu}
+										</script>
+										<script>
+											var um = UM.getEditor('myEditor2');
+										</script>
+								</p>
+								<p style="width:550px;">
+									<label>活动流程</label>
+										<script type="text/plain" id="myEditor3" name="flow" style="width:550px;height:170px;">{$info.flow}
+										</script>
+										<script>
+											var um = UM.getEditor('myEditor3');
+										</script>
+								</p>
+								<p style="width:550px;">
+									<label>奖品信息</label>
+										<script type="text/plain" id="myEditor4" name="prize" style="width:550px;height:170px;">{$info.prize}
+										</script>
+										<script>
+											var um = UM.getEditor('myEditor4');
+										</script>
+								</p>
+								<p>
+									<label>活动简介板块是否首页显示</label>
+										<span>显示</span><input type="radio" id="small-input" name="isshowdes" value="1" <?php if($info['isshowdes']==1){echo "checked='checked'";}?>/>
+										<span>不显示</span><input type="radio" id="small-input" name="isshowdes" value="0" <?php if($info['isshowdes']==0){echo "checked='checked'";}?>/>
+								</p>
+								<p>
+									<label>如何参与板块是否首页显示</label>
+										<span>显示</span><input type="radio" id="small-input" name="isshowcanyu" value="1" <?php if($info['isshowcanyu']==1){echo "checked='checked'";}?>/>
+										<span>不显示</span><input type="radio" id="small-input" name="isshowcanyu" value="0" <?php if($info['isshowcanyu']==0){echo "checked='checked'";}?>/>
+								</p>
+								<p>
+									<label>活动流程板块是否首页显示</label>
+										<span>显示</span><input type="radio" id="small-input" name="isshowflow" value="1" <?php if($info['isshowflow']==1){echo "checked='checked'";}?>/>
+										<span>不显示</span><input type="radio" id="small-input" name="isshowflow" value="0" <?php if($info['isshowflow']==0){echo "checked='checked'";}?>/>
+								</p>
+								<p>
+									<label>惊喜礼品板块是否首页显示</label>
+										<span>显示</span><input type="radio" id="small-input" name="isshowprice" value="1" <?php if($info['isshowprice']==1){echo "checked='checked'";}?>/>
+										<span>不显示</span><input type="radio" id="small-input" name="isshowprice" value="0" <?php if($info['isshowprice']==0){echo "checked='checked'";}?>/>
+								</p>
+								<p>
+									<label>电话</label>
+										<input class="text-input small-input" type="text" id="small-input" name="tel" value="{$info.tel}"/>
+								</p>
+								<p>
+									<label>设置虚拟访问量</label>
+										<input class="text-input small-input" type="text" id="small-input" name="visits" value="{$info.visits}"/>
+								</p>
+								<p>
+									<label>限制同一IP投票次数</label>
+										<input class="text-input small-input" type="text" id="small-input" name="iptimes" value="{$info.iptimes}"/>
+								</p>
+								<p>
+									<label>是否可以每天投票</label>
+										<span>是</span><input type="radio" id="small-input" name="everydayvote" value="1" <?php if($info['everydayvote']==1){echo "checked='checked'";}?>/>&nbsp;&nbsp;
+										<span>否</span><input type="radio" id="small-input" name="everydayvote" value="0" <?php if($info['everydayvote']==0){echo "checked='checked'";}?>/><br /><span>（如果选择是，则代表用户每天都可以投一票；选择否，则代表用户整个活动过程中只能投一票）</span>
+								</p>
+								<p>
+									<label>投票模式</label>
+										<span>只允许关注用户参与</span><input type="radio" id="small-input" name="isfollow" value="1" <?php if($info['isfollow']==1){echo "checked='checked'";}?>/>
+										<span>允许所有用户参与</span><input type="radio" id="small-input" name="isfollow" value="0" <?php if($info['isfollow']==0){echo "checked='checked'";}?>/>
+								</p>
+								<p>
+									<label>投票区域限制</label>
+										<input class="text-input small-input" type="text" id="small-input" name="ipaddress" value="{$info.ipaddress}"/><br /><span>（不填写为没有区域限制，所有地区用户都可以参加。填写为区域限制，填写格式如“海南|江苏”，由于移动端IP通常都不在本地，建议只填写到省级）</span>
+								</p>
+								
+								<p>
+									<input class="button" type="submit" value="保存" />
+									
+								</p>
+								
+							</fieldset>
+							
+							<div class="clear"></div><!-- End .clear -->
+							
+						</form>
+						
+					</div> <!-- End #tab2 -->        
+					
+				</div> <!-- End .content-box-content -->
+				
+			</div> <!-- End .content-box -->
+			
+			<div id="footer">
+				<small> <!-- Remove this notice or replace it with whatever you want -->
+						&#169; Copyright 第一网销 | <a href="#">Top</a>
+				</small>
+			</div><!-- End #footer -->
+			
+		</div> <!-- End #main-content -->
+		
+	</div></body>
+  
+
+<!-- Download From www.exet.tk-->
+</html>
