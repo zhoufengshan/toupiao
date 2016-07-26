@@ -5,5 +5,5 @@ define("APP_PATH","./vote/");
 require "./ThinkPHP/ThinkPHP.php";
 
 
-
+//dev
 ?>
