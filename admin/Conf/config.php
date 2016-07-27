@@ -9,7 +9,7 @@ return array(
 	'DB_PORT'   => 3306, // 端口
 	'DB_PREFIX' => 'tp_', // 数据库表前缀
 	'URL_MODEL' => 1,
-	'DEFAULT_ACTION' => 'imgcarous'
-	//'SHOW_PAGE_TRACE' => true
+	'DEFAULT_ACTION' => 'imgcarous',
+	'SHOW_PAGE_TRACE' => true
 );
 ?>
