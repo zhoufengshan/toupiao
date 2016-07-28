@@ -1,8 +1,19 @@
 <?php
+
+/**
+ * 微信接口类
+ * Class wx
+ */
 class wx{
 	private $appid;
 	private $appsecret;
-	
+
+	/**
+	 * 初始化appid appsecret
+	 * wx constructor.
+	 * @param $appid
+	 * @param $appsecret
+	 */
 	public function __construct($appid,$appsecret){
 		if(!isset($appid) && !isset($appsecret)){
 			return false;
