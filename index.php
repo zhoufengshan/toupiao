@@ -13,5 +13,5 @@ require "./ThinkPHP/ThinkPHP.php";
 
 //dev 27 15:22
 
-//centos
+//shell
 ?>
