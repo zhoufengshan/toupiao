@@ -11,7 +11,5 @@ require "./ThinkPHP/ThinkPHP.php";
 
 //new dev
 
-//dev 27 15:22
-
 //shell
 ?>
