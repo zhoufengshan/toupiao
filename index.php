@@ -7,7 +7,7 @@ require "./ThinkPHP/ThinkPHP.php";
 //9.2
 //dev
 // sd
-//feature1
+//myfeature
 
 //new dev
 
